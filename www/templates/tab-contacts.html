@@ -1,0 +1,12 @@
+<ion-view view-title="contacts">
+  <ion-content class="padding">
+   
+   <ion-list class="">
+       <ion-item class="item-avatar" ng-repeat="contact in contacts track by $index" ng-click="">
+              <img ng-src="{{contact.avatar}}" alt="{{contact.name}} avatar">
+               <h2>{{contact.name}}</h2>
+               <p>Last Active: {{contact.lastActive | date: MM/dd/yyyy}}</p>
+       </ion-item>
+   </ion-list>
+  </ion-content>
+</ion-view>

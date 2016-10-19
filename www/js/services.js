@@ -31,7 +31,7 @@ angular.module('starter.services', [])
     face: 'img/mike.png'
   }];
 
-  return {
+  return { 
     all: function() {
       return chats;
     },

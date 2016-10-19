@@ -5,7 +5,7 @@
 // the 2nd parameter is an array of 'requires'
 // 'starter.services' is found in services.js
 // 'starter.controllers' is found in controllers.js
-var groupChat = angular.module('starter', ['ionic', 'starter.controllers', 'starter.services', 'firebase']);
+var groupChat = angular.module('groupChat', ['ionic', 'firebase']);
 
 groupChat.run(function($ionicPlatform) {
   $ionicPlatform.ready(function() {
@@ -40,12 +40,12 @@ groupChat.config(function($stateProvider, $urlRouterProvider) {
 
   // Each tab has its own nav history stack:
 
-  .state('tab.dash', {
-    url: '/dash',
+  .state('tab.contacts', {
+    url: '/contacts',
     views: {
-      'tab-dash': {
-        templateUrl: 'templates/tab-dash.html',
-        controller: 'DashCtrl'
+      'tab-contacts': {
+        templateUrl: 'templates/tab-contacts.html',
+        controller: 'ContactsCtrl'
       }
     }
   })
