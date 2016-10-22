@@ -1,6 +1,6 @@
 // services for chats
 
-groupChat.factory('ChatServices', ['$firebaseArray', function($firebaseArray){
+groupChat.factory('ChatServices', ['$firebaseArray', '$rootScope', function($firebaseArray, $rootScope){
     
     // databind chats with firebase
     var ref = firebase.database().ref().child('chats');
@@ -17,7 +17,9 @@ groupChat.factory('ChatServices', ['$firebaseArray', function($firebaseArray){
             syncedChats.$add(chat);
         }, 
         get: function(chatId){
-            syncedChats.$getRecord(chatId);
+            syncedChats.$loaded().then(function(){
+                $rootScope.$broadcast('loadChat', syncedChats.$getRecord(chatId));
+            });
         },
         update: function(chatId){
             syncedChats.$save(chatId);

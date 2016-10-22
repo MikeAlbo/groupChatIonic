@@ -64,7 +64,7 @@ groupChat.config(function($stateProvider, $urlRouterProvider) {
       views: {
         'tab-chats': {
           templateUrl: 'templates/chat-detail.html',
-          controller: 'ChatDetailCtrl'
+          controller: 'ChatMessagesCtrl'
         }
       }
     })
