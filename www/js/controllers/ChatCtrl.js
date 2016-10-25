@@ -3,6 +3,23 @@ groupChat.controller('ChatsCtrl', ['$scope', '$rootScope', 'ChatServices', 'Cont
 
 $scope.chats = ChatServices.all();
 $scope.contacts = ContactsService.all();
+
+$scope.addContactInput = "";
+$scope.addedContacts = [];
+
+$scope.removeContact = function (person) {
+
+};
+
+$scope.addContact = function (person) {
+  if($scope.addedContacts.indexOf(person) == -1){
+      $scope.addedContacts.push(person);
+      $scope.addContactInput = "";
+  }
+};
+
+
+
     
 $scope.newChat = function(){
     
@@ -54,7 +71,7 @@ $scope.newChat = function(){
     $scope.closeChatDetails = function(){
         $scope.chatDetailModal.hide();
     };
-    
+
     $scope.$on('$destroy', function(){
        $scope.chatDetailModal.remove(); 
     });
